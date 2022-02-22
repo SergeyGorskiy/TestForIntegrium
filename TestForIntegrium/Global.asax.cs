@@ -1,0 +1,7 @@
+﻿namespace TestForIntegrium
+{
+    class Global
+    {
+        
+    }
+}

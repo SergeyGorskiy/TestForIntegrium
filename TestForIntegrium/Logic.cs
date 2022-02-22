@@ -8,9 +8,9 @@ namespace TestForIntegrium
     {
         public IEnumerable<User> UsersInService;
 
-        public string GetInnByPassport(User user)
+        public int GetInnByPassport(User user)
         {
-            string inn = UsersInService.Where(u => u.FirstName == user.FirstName
+            int inn = UsersInService.Where(u => u.FirstName == user.FirstName
                                                    && u.Patronymic == user.Patronymic
                                                    && u.LastName == user.LastName
                                                    && u.DateOfBirth == user.DateOfBirth

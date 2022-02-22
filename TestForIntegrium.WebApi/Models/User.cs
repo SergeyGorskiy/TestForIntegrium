@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestForIntegrium
+namespace TestForIntegrium.WebApi.Models
 {
     public class User
     {
@@ -17,6 +17,5 @@ namespace TestForIntegrium
         public int NumberOfPassport { get; set; }
 
         public int Inn { get; set; }
-
     }
 }
