@@ -9,10 +9,10 @@ namespace TestForIntegrium
     {
         static void Main(string[] args)
         {
-            //GetUserByIdAsync().Wait();
+            GetUserByIdAsync().Wait();
             //CreateUserAsync().Wait();
             //UpdateUserAsync().Wait();
-            DeleteUserAsync().Wait();
+            //DeleteUserAsync().Wait();
         }
 
         static async Task GetUserByIdAsync()
@@ -20,10 +20,10 @@ namespace TestForIntegrium
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12189/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync("api/User/1");
+                int userId = 1;
+
+                HttpResponseMessage response = await client.GetAsync("api/User/" + userId);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -42,8 +42,6 @@ namespace TestForIntegrium
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12189/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 var user = new User { FirstName = "Сергей",
                                       Patronymic = "Сергеевич",
@@ -67,10 +65,8 @@ namespace TestForIntegrium
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12189/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var user = new User { UserId = 7, FirstName = "Андрей" };
+                var user = new User { UserId = 9, FirstName = "Андрей" };
 
                 HttpResponseMessage response = await client.PutAsJsonAsync("api/user", user);
 
@@ -86,10 +82,8 @@ namespace TestForIntegrium
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12189/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                int userId = 8;
+                int userId = 9;
 
                 HttpResponseMessage response = await client.DeleteAsync("api/User/" + userId);
 
